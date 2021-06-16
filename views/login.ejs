@@ -7,6 +7,11 @@
   <link rel='stylesheet' href='/css/style.css' type='text/css' />
 
 <body>
+  <script type="text/javascript">
+    function movepage(adress) {
+      location.href = adress;
+    }
+  </script>
 
   <h1> 로그인 </h1>
   <h1><%= message %></h1>
@@ -15,8 +20,12 @@
     <form action="/login" method="post">
       <input type="text" name="username" placeholder="id" /><br />
       <input type="password" name="password" placeholder="password" /><br />
-      <input type="submit" />
+      <input type="submit" value="로그인" />
+      <button type="button" onclick="location.href='/signup'">
+        새로고침
+      </button>
     </form>
+    
   </div>
 
 </body>

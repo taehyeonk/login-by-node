@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRcode Page</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function movepage(adress) {
+            location.href = adress;
+        }
+    </script>
+    <br>
+    <br>
+    <div class="container " role="main">
+        <h2><strong> QR Code </strong></h2>
+        <div id="tablePlace"></div>
+        <input type="button" value="돌아가기" onclick="movepage('/home')" />
+        <input type="button" value="새로고침" onclick="movepage('/QRcode')" />
+    </div>
+    
+    <br>
+    <h5>유효한시간  <input id="fromaddress" size="5" value="XX" placeholder=""></input> </h5>
+    <h5>지갑주소  <input id="fromaddress" size="40" value="16ufD7ertJNZkt7XZwUDv8i7iayB9HAA3X" placeholder=""></input> </h5>
+    <h5>별명  <input id="toaddress" size="5" placeholder="귀여미"></input> </h5>
+    <h5>현재코인  <input id="sendcoin" size="5" placeholder="1.10"></input> </h5>
+    <br>
+    <div class="container " role="main">
+        <h4><strong> Message </strong></h4>
+    </div>
+    
+    <div id="qrcode" style="width:250px; height:250px; margin-top:15px;"></div>
+    
+    <hr>
+    <footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white"><b>copyright ⓒ Sunstar, Since 2015 . All Rights Reserved. </b></p>
+    </div>
+    </footer>
+</body>
+</html>

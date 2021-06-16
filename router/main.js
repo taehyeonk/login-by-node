@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
+const { fstat } = require('fs');
 // var mysql = require('mysql');
 // var dbConfig = require('./dbconfig');
 // var conn = mysql.createConnection(dbOptions);
@@ -27,6 +28,18 @@ module.exports = function (app) {
       res.redirect('/welcome');
   });
 
+  // 회원가입
+  app.get('/signup', function (req, res) {
+    res.render('signup.ejs');
+  });
+
+  app.post('/signup', function (req, res) {
+    // 세션으로 저장 or DB에 저장하고
+
+    res.redirect('/');
+  });
+
+  // 로그인
   app.get('/login', function (req, res) {
     if (!req.session.name)
       res.render('login', { message: 'input your id and password.' });
@@ -107,4 +120,26 @@ module.exports = function (app) {
   // });//pbkdf2
   // });//query
   // });
+
+  // 메인 페이지
+  app.get('/home', function (req, res) {
+    res.render('home.html');
+  });
+
+  // QRcode 페이지
+  app.get('/QRcode', function (req, res) {
+    res.render('QRcode.html');
+  });
+
+  // 내정보 페이지
+  app.get('/mypage', function (req, res) {
+    res.render('mypage.html');
+  });
+
+  // 주변 매장 찾기 페이지
+  app.get('/findshop', function (req, res) {
+    res.render('findshop.html');
+  });
+
+  
 }

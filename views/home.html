@@ -1,9 +1,11 @@
 <!doctype html>
 <html dir="ltr" lang="ko">
+
 <head>
-  <meta charset="utf-8">
-  <title>Real Reveiw Home</title>
+    <meta charset="utf-8">
+    <title>Real Reveiw Home</title>
 </head>
+
 <body>
     <script type="text/javascript">
         function movepage(adress) {
@@ -11,11 +13,12 @@
         }
     </script>
     <h1>리리</h1>
+    <h2>Hello, <%= name %></h2>
     <div>
-        <input type="button" value="QRbutton" onclick="movepage('/QRcode')" />
+        <input type="button" value="QR Code" onclick="movepage('/QRcode')" />
         <input type="button" value="내 정보" onclick="movepage('/mypage')" />
         <input type="button" value="로그아웃" onclick="movepage('/')" />
         <input type="button" value="주변 매장 찾기" onclick="movepage('/findshop')" />
     </div>
-​
+    ​
 </body>

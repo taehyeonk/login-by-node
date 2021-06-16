@@ -3,10 +3,12 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
 const { fstat } = require('fs');
+const { schedulingPolicy } = require('cluster');
 // var mysql = require('mysql');
 // var dbConfig = require('./dbconfig');
 // var conn = mysql.createConnection(dbOptions);
 // conn.connect();
+
 
 module.exports = function (app) {
   app.use(session({
@@ -25,7 +27,7 @@ module.exports = function (app) {
     if (!req.session.name)
       res.redirect('/login');
     else
-      res.redirect('/welcome');
+      res.redirect('/welcom');
   });
 
   // 회원가입
@@ -123,7 +125,7 @@ module.exports = function (app) {
 
   // 메인 페이지
   app.get('/home', function (req, res) {
-    res.render('home.html');
+    res.render('home.html', { name: req.session.name });
   });
 
   // QRcode 페이지
@@ -141,5 +143,33 @@ module.exports = function (app) {
     res.render('findshop.html');
   });
 
-  
+  // 코인 충전 페이지
+  app.get('/buycoin', function (req, res) {
+    res.render('buycoin.html');
+  });
+
+  // GET ALL SHOPS
+  app.get('/api/shops', function (req, res) {
+    
+  });
+
+  // GET SINGLE SHOPS
+  app.get('/api/shops/:shop_id', function (req, res) {
+    res.end();
+  });
+
+  // CREATE SHOPS
+  app.post('/api/shops', function (req, res) {
+    res.end();
+  });
+
+  // UPDATE THE BOOK
+  app.put('/api/shops/:shop_id', function (req, res) {
+    res.end();
+  });
+
+  // DELETE BOOK
+  app.delete('/api/shops/:shop_id', function (req, res) {
+    res.end();
+  });
 }

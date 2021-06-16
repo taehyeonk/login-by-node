@@ -27,7 +27,7 @@ module.exports = function (app) {
     if (!req.session.name)
       res.redirect('/login');
     else
-      res.redirect('/welcom');
+      res.redirect('/welcome');
   });
 
   // 회원가입

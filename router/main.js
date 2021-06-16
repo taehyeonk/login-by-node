@@ -44,7 +44,7 @@ module.exports = function (app) {
     if (!req.session.name)
       res.render('login', { message: 'input your id and password.' });
     else
-      res.redirect('/welcome');
+      res.redirect('/home');
   });
 
   app.get('/welcome', function (req, res) {
@@ -84,7 +84,7 @@ module.exports = function (app) {
       if (derivedKey.toString('hex') === pw) {
         req.session.name = id;
         req.session.save(function () {
-          return res.redirect('/welcome');
+          return res.redirect('/home');
         });
       }
       else {
